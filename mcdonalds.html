@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #menu {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        margin-bottom: 60px;
+      }
+      #menu div img {
+        width: 50%;
+      }
+      #btn {
+        width: 20%;
+        margin: auto;
+      }
+      #orderBtn {
+        padding: 15px 80px;
+        border: 1px solid #ffbc0d;
+        background-color: #ffbc0d;
+        font-weight: 500;
+        font-size: larger;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+      #orderBtn:hover {
+        background-color: white;
+        border: 3px solid #ffbc0d;
+      }
+      #logo {
+        margin-left: 100px;
+      }
+      #orderBox {
+        text-align: center;
+        width: 50%;
+        margin: auto;
+      }
+      #odi {
+        color: teal;
+      }
+      #succ {
+        color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="logo">
+      <img
+        src="https://www.mcdonalds.com/content/dam/sites/usa/nfl/icons/arches-logo_108x108.jpg"
+      />
+    </div>
+    <div id="menu">
+      <div>
+        <input id="food1" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Big-Mac-1:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food2" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Quarter-Pounder-with-Cheese-1:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food3" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit-1:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food4" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/Header_MediumStrawberryWatermelonSlushie_Glass_832x472:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food5" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Coca-Cola-Classic-Small-1:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food6" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Sprite-Small:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food7" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Dasani-Water:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food8" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/h-mcdonalds-Hamburger:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food9" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-blueberry-muffin-bakery-mcd:1-4-product-tile-desktop"
+        />
+      </div>
+      <div>
+        <input id="food10" type="checkbox" />
+        <img
+          src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-fries-small:1-4-product-tile-desktop"
+        />
+      </div>
+    </div>
+    <div id="btn">
+      <button id="orderBtn">Order Food</button>
+    </div>
+    <div id="orderBox">
+      <h1 id="succ"></h1>
+      <h3 id="odi"></h3>
+      <div id="result"></div>
+    </div>
+  </body>
+</html>
+<script>
+  document.getElementById("orderBtn").addEventListener("click", getOrder);
+
+  async function getOrder() {
+    var pro = await new Promise(function (resolve, reject) {
+      document.getElementById("result").innerHTML = `<img
+        src="https://media0.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif?cid=ecf05e47hugtt8orglcdk43f2cwu820fr3yifzqt7ltwfo2b&rid=giphy.gif&ct=g"
+      />`;
+      document.getElementById("btn").style.display = "none";
+      document.getElementById("menu").style.display = "none";
+      setTimeout(function () {
+        if (document.getElementById("food1").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Big-Mac-1:1-4-product-tile-desktop"
+      />`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 181361031029";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food2").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Quarter-Pounder-with-Cheese-1:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 101361031010";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food3").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Bacon-Egg-Cheese-Biscuit-Regular-Size-Biscuit-1:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 111361031011";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food4").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/Header_MediumStrawberryWatermelonSlushie_Glass_832x472:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 121361031012";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food5").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Coca-Cola-Classic-Small-1:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 131361031013";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food6").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Sprite-Small:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 141361031014";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food7").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-Dasani-Water:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 151361031015";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food8").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/h-mcdonalds-Hamburger:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 191361031019";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food9").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-blueberry-muffin-bakery-mcd:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 201361031020";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        } else if (document.getElementById("food10").checked) {
+          document.getElementById("result").innerHTML = `<img
+        src="https://s7d1.scene7.com/is/image/mcdonalds/t-mcdonalds-fries-small:1-4-product-tile-desktop"/>`;
+
+          document.getElementById("succ").innerHTML = "Your Order is Confirmed";
+          document.getElementById("odi").innerHTML = "Order Id:- 211361031021";
+          document.getElementById("btn").style.display = "none";
+          document.getElementById("menu").style.display = "none";
+          document.getElementById("orderBox").style.boxShadow =
+            " rgba(0, 0, 0, 0.24) 0px 3px 8px";
+        }
+      }, 3000);
+    });
+  }
+</script>
